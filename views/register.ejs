@@ -1,0 +1,105 @@
+<% include partials/header.ejs %>
+<link href="/stylesheets/register.css" rel="stylesheet">
+<script src="/js/register.js" type="text/javascript"></script>
+<h1 class="jumbotron mb-0">Sign Up & Clear Your Doubts</h1>
+<div id="registerArea" class="pb-1 pt-5">
+    <form action="/signup" method="POST" class="container">
+      <div class="form-group row">
+        <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="firstname" placeholder="John" name="firstname" required>
+        </div>
+        <label class="col-sm-2" id="invalidName">Invalid Name</label>
+      </div>
+      <div class="form-group row">
+        <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="lastname" placeholder="Doe" name="lastname" required>
+        </div>
+        <label class="col-sm-2" id="invalidName">Invalid Name</label>
+      </div>
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Unique Username</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="username" placeholder="JohnDoe123" name="username" required>
+        </div>
+      </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-4">
+      <input type="email" class="form-control" id="email" onblur="validEmail()" placeholder="abc@xyz.com" name="email" required>
+    </div>
+    <label class="col-sm-2" id="invalidEmail">Wrong Email format</label>
+  </div>
+  <div class="form-group row">
+    <label for="dob" class="col-sm-2 col-form-label">Date Of Birth</label>
+    <div class="col-sm-4">
+      <input type="date" class="form-control" id="dob"  name="dob" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="pass1" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-4">
+      <input type="password" class="form-control" id="pass1" maxlength="8" onblur="confirmPassword()" name="password" required placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="pass2" class="col-sm-2 col-form-label"> Confirm Password</label>
+    <div class="col-sm-4">
+      <input type="password" class="form-control" id="pass2" maxlength="8" onblur="confirmPassword()" name="password1" required placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+    </div>
+    <label class="col-sm-2 " id="passwordMismatch">Password mismatch</label>
+  </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">I'am a</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="type" id="gridRadios1" value="Student" checked>
+          <label class="form-check-label" for="gridRadios1">
+            Student
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="Teacher">
+          <label class="form-check-label" for="gridRadios2">
+            Teacher
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+      <label for="department" class="col-sm-2 col-form-label">Department</label>
+      <div class="col-sm-4">
+        <select class="custom-select form-control" name="department"  required>
+          <option selected disabled>Choose your Department</option>
+          <option value="CSE">Computer Science And Engineering</option>
+          <option value="CE">Civil Engineering</option>
+          <option value="EE">Electrical Engineering</option>
+          <option value="ETC">Electronics and Telecommunication Engineering</option>
+          <option value="ME">Mechanical Engineering</option>
+          <option value="AEI">Applied Electronics and Instrumentation Engineering</option>
+          <option value="CHE">Chemical Engineering</option>
+          <option value="MRE">Marine Engineering</option>
+          <option value="IT">Information Technology and Engineering</option>
+          <option value="EEE">Electrical and Electronics Engineering</option>
+        </select>
+      </div>
+  </div>
+    <div class="form-group row">
+    <label for="uid" class="col-sm-2 col-form-label">Unique ID</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" id="uid" maxlength="8" minlength="8" name="uid" placeholder="CS170050" required>
+      <span style="font-size:0.7em;">*College roll number (if student) or employee id (if teacher)</span>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <button type="submit" class="btn btn-lg">Sign up</button>
+    </div>
+  </div>
+</form>
+  </div>
+  
+  <% include partials/footer.ejs %>

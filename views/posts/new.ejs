@@ -1,0 +1,24 @@
+<% include ../partials/header.ejs %>
+<link href="/stylesheets/newpost.css" rel="stylesheet">
+<div class="container">
+    <div class="d-flex justify-content-center mt-2">
+      <form action="/posts" method="POST">
+        <h4 class="mt-3 mb-3">Have some questions? Ask Now</h4>
+        <input type="text" placeholder="Question" class="mt-3 mb-3" name="question">
+        <textarea placeholder="Question detail..." required name="description"></textarea>
+        <label for="subject" class="mt-3 mr-2 mb-3">Select subject</label>
+        <select name="subjects">
+          <option value="general" selected disabled>Subjects</option>
+          <option value="dccn">DCCN</option>
+          <option value="dm">DM</option>
+          <option value="ds">DS</option>
+          <option value="aec">AEC</option>
+          <option value="java">OOPC</option>
+          <option value="web">WEB</option>
+          <option value="other">Other</option>
+        </select>
+        <input class="btn btn-block ask" type="submit" value="Ask now" >
+      </form>
+    </div>
+</div>
+<% include ../partials/footer.ejs %>

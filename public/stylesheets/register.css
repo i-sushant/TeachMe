@@ -1,0 +1,25 @@
+body{
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+}
+h1{
+  text-align:center;
+}
+#registerArea{
+  margin-top:0;
+  background:#2ecc72;
+  color:white;
+}
+#invalidName,#invalidEmail,#passwordMismatch{
+  display:none;
+  color:#FC0303;
+  font-size: 0.9em;
+}
+.btn{
+  background:#10A881;
+  color:#fff;
+}
+.btn:focus{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}

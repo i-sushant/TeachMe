@@ -1,0 +1,46 @@
+<% include partials/header.ejs %>
+<link href="/stylesheets/landing.css" rel="stylesheet">
+<header class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/1166657/pexels-photo-1166657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+      <img class="img-fluid d-block mx-auto" style="width:180px;height:180px;border-radius:50%;opacity:0.9;"src="https://teachmeuk.co.uk/wp-content/uploads/2017/10/teach-me-facebook-cover.png" alt="">
+    </header>
+
+    
+    <section class="py-5">
+      <div class="container animated fadeInUp delay-2s">
+        <h1>About Us</h1>
+        <p class="lead">Seek out answers to all your questions or help someone with theirs.</p>
+        <p>This application is to help students with their doubts and help them interact
+        with their teachers , provide study materials , chat with other users (coming soon) , engage in group discussions and much more!
+        </p>
+        <% if(!currentUser){ %>
+        <p>Get on board with us today!</p>
+        <a href="/signup" class="btn btn-success btn-sm">Join Us</a>
+        <% } %>
+      </div>
+    </section>
+
+    <section class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/197293/pexels-photo-197293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+      <div style="height: 200px;"></div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+            <form action="mailto:imsushant25@gmail.com" method="POST" enctype="text/plain">
+                <h1>Contact us</h1>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-1 col-form-label">Name</label>
+                    <input id="name" name="name" placeholder="Name" type="text" class="form-control col-md-3">
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-1 col-form-label">Email</label>
+                    <input id="email" name="email" placeholder="E-mail" type="email" class="form-control col-md-3">
+                </div>
+                <div class="form-group row">
+                    <input  name="" value="Contact us" type="submit" class="btn btn-success btn-sm col-md-4">
+                </div>  
+        </form>
+       </div>
+    </section>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<% include partials/footer.ejs %>

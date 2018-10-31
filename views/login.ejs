@@ -1,0 +1,18 @@
+<% include partials/header.ejs %>
+<link href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans" rel="stylesheet">
+<link href="/stylesheets/login.css" rel="stylesheet">
+<div id="formArea">
+        <form action="/login" method="POST">
+          <h2>Login</h2>
+          <hr>
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Username" required>
+          <label for="password">Password</label>
+          <input type="password" id="pass" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" name="password" required>
+          <button id="submit" onclick="checkValid()">Submit</button>
+          <a id="assist" href="#">Forgot Password?</a>
+          <a id="assist" href="/signup">Don't have an account?</a>
+        </form>
+    </div>
+</body>
+</html>

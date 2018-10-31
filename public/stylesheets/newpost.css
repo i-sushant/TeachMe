@@ -1,0 +1,25 @@
+h4{
+  text-align: center;
+}
+textarea{
+  display: block;
+  height: 7em;
+  width:100%;
+  border-radius:4px;
+}
+.ask{
+  background: #1287A5;
+  display: block;
+  color:white;
+}
+
+.ask:hover{
+  background: #127791;
+}
+.question{
+  display: block;
+  border:1px solid #fefefe;
+}
+input{
+    width:100%;
+}

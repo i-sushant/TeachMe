@@ -1,0 +1,31 @@
+<% include partials/header.ejs %>
+<link href="/stylesheets/posts.css" rel="stylesheet">
+<div class="container">
+  <header class="jumbotron text-center">
+      <h1>Welcome to TeachMe!</h1>
+      <% if(currentUser.type=="Student") { %>
+      <p>Get all your questions answered and help others too</p>
+      <a href="/posts/new"><button class="btn btn-primary btn-sm">Ask Question</button></a>
+      <% }else{ %>
+      <p>Help Students with their doubts</p>
+      <% } %>
+  </header>
+      <% if(posts.length<1){ %>
+      <p style="text-align:center;font-size:2.5rem">No New Questions</p>
+      <% } else { %>
+      <% posts.reverse() %>
+    <% posts.forEach(function(post){ %>
+      <div class="d-flex justify-content-center mt-1 animated fadeIn delay-4s">
+      <div class="card mt-1 mb-1">
+    <div class="card-body">
+      <h5 class="card-title"> <%= post.question %></h5>
+      <p class="card-text"> <%= post.description.substr(0,200) %>. . .</p>
+      <a href="/posts/<%= post._id %>" class="btn btn-primary btn-sm">Read More</a>   
+      <p class="pt-1"><%= post.answer.length %> answer</p>
+    </div>
+  </div>
+    </div>
+   <% }); %>
+   <% } %>
+   </div>
+<% include partials/footer.ejs %>

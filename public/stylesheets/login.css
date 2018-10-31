@@ -1,0 +1,102 @@
+body{
+  margin:0;
+  padding:0;
+  background: #1287A5;
+  color:white;
+  overflow-x:hidden;
+}
+#formArea{
+  text-transform: uppercase;
+  background:rgba(0, 0, 0, 0.5);
+  margin:5% auto;
+  width:38%;
+  height:28em;
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  transition:all 0.1s ease-out;
+}
+form{
+  position:relative;
+  top:18%;
+}
+h2{
+  text-align: center;
+  font-size:1.4em;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.2px;
+  font-family: 'Open Sans', sans-serif;
+
+}
+hr{
+  width:15%;
+}
+label{
+  display: block;
+  padding-bottom: 1.2em;
+  padding-top: 1.2em;
+  padding-left:10%;
+  font-size: 0.9em;
+  font-family: 'Dosis', sans-serif;
+  line-height: 0.5;
+  letter-spacing: 1.4px;
+}
+input{
+  display: block;
+  margin-left:10%;
+  margin-bottom:2%;
+  width:65%;
+  height:1.5em;
+  border: none;
+  outline:none;
+  border-bottom: 1.5px solid #1287A5;
+  background: transparent;
+  font-size: 1em;
+  color:white;
+}
+#invalid{
+  display:none;
+  margin-left:10%;
+  color:red;
+  text-transform:capitalize;
+  font-size:0.8em;
+}
+#submit{
+  color:white;
+  text-transform: uppercase;
+  width:65%;
+  height:2.2em;
+  margin:8% 0 3% 17%;
+  border-radius: 20px;
+  background: #1287A5;
+  border:none;
+  outline: none;
+  letter-spacing: 1.5px;
+}
+#submit:hover{
+  background: #0f7a96;
+  transition: 0.1s;
+}
+#assist{
+display: block;
+text-align: center;
+text-decoration: none;
+color:white;
+text-transform: capitalize;
+}
+@media screen and (max-width:1029px){
+  #formArea{
+    width:50%;
+  }
+}
+@media screen and (max-width:840px){
+  #formArea{
+    width:60%;
+  }
+}
+@media screen and (max-width:440px){
+  #formArea{
+    width:80%;
+  }
+}

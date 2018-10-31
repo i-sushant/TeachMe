@@ -1,0 +1,38 @@
+<% include ../partials/header.ejs %>
+<div class="container">
+    <div class="mt-3 card bg-light p-4" style="max-width:38em">
+      <h2><%= posts.question %></h2>
+      <p><%= posts.description %></p>
+      <p><em>Asked by<a href="/profile/<%= posts.author.username %>"> <%= posts.author.username %></a></em></p>
+      <% if(currentUser && posts.author.id.equals(currentUser._id)){ %>
+      <div class="d-flex">
+           <a href="/posts/<%= posts._id %>/edit" class="btn btn-sm btn-warning mr-2" style="color:white;">Edit Post</a>
+           <form class="delete" action="/posts/<%= posts._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger">Delete Post</button>
+           </form>
+        </div>
+        <% } %>
+    </div>
+     <% if(!(currentUser && posts.author.id.equals(currentUser._id))){ %>
+    <a href="/posts/<%= posts._id %>/answer/new" class="btn btn-sm btn-primary mt-3 mb-3" id="addAnswer">Add Answer</a>
+    <% } %>
+    <% if(posts.answer.length>0){ %>
+    <hr>
+    <p><strong>Recent Answers</strong></p>
+    <% posts.answer.forEach(function(answers){ %>
+    <div class="mt-3 card bg-block p-3" style="max-width:38rem;font-size:0.95em;">
+        <p><a href="/profile/<%= answers.author.username %>"><strong><%= answers.author.username %></strong></a> answered :</p>
+        <p class="pl-2"><%= answers.text %></p>
+        <div style="color:white;" class="row pl-3">
+            <% if(currentUser && answers.author.id.equals(currentUser._id)){ %>
+            <a class="btn btn-sm btn-warning ml-2 mr-2" href="/posts/<%= posts._id %>/answer/<%= answers._id %>/edit">Edit</a>
+            <form class="delete" action="/posts/<%= posts._id %>/answer/<%= answers._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+            <% } %>
+        </div>
+    </div>
+     <% }); %>
+     <% } %>
+  </div>
+<% include ../partials/footer.ejs %>
