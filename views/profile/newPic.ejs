@@ -1,0 +1,30 @@
+<% include ../partials/header.ejs %>
+<link href="/stylesheets/newPic.css" rel="stylesheet">
+<!-- <script src="/js/profile.js" type="text/javascript"></script> -->
+
+<script type="text/javascript">
+              $(document).ready(
+      function(){
+          $('input:submit').attr('disabled',true);
+          $('input:file').change(
+              function(){
+                  if ($(this).val()){
+                      $('input:submit').removeAttr('disabled');
+                  }
+                  else {
+                      $('input:submit').attr('disabled',true);
+                  }
+              });
+      });
+          </script>
+<div class="container">
+  <div class="d-flex flex-column justify-content-center mt-2">
+    <div><h3 class="mb-4">Change Profile Picture</h3></div>
+    <div><img src="<%= user[0].displayPic %>" alt="Display Pic"></div>
+    <div><form action="/profile/<%= user[0].username %>/changepic" method="POST" enctype="multipart/form-data">
+      <input type="file" id="image" name="image" accept="image/*">
+      <input class="btn btn-primary" type="submit" disabled>
+    </form></div>
+  </div>
+</div>
+<% include ../partials/footer.ejs %>

@@ -7,13 +7,10 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt=""/>
-                            <!-- <div class="file btn btn-lg btn-primary">
-                            </div> -->
-                            <form action="/profile/<%= user[0].username %>/change" method="POST">
-                              <input type="file" id="image" name="image" accept="image/*"/>
-                              <button>Change Photo</button>
-                            </form>
+                            <img src="<%= user[0].displayPic %>" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                <a href="/profile/<%= user[0].username %>/changepic">Change Photo</a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">

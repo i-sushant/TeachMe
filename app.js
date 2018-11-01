@@ -20,23 +20,8 @@ let answerRoutes    = require("./routes/answer"),
       }
     });
 
-//New Code for image upload
 
-// var imageFilter = function (req, file, cb) {
-//     // accept image files only
-//     if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
-//         return cb(new Error('Only image files are allowed!'), false);
-//     }
-//     cb(null, true);
-// };
-// var upload = multer({ storage: storage, fileFilter: imageFilter})
-//
-// var cloudinary = require('cloudinary');
-// cloudinary.config({
-//   cloud_name: 'sushantgupta33',
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_API_SECRET;
-// });
+
 
 
 mongoose.connect(process.env.DATABASEURL,{ useNewUrlParser: true });
@@ -63,6 +48,24 @@ app.use(require("express-session")({
    res.locals.success=req.flash("success");
    next();
 });
+
+
+var imageFilter = function (req, file, cb) {
+    // accept image files only
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+var upload = multer({ storage: storage, fileFilter: imageFilter})
+
+var cloudinary = require('cloudinary');
+cloudinary.config({
+  cloud_name: 'sushantgupta33',
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 
 app.use("/", indexRoutes);
 app.use("/posts", postsRoutes);
@@ -106,13 +109,38 @@ app.post("/profile/:username",middleware.isLoggedIn,middleware.isProfileOwner,fu
    User.deleteOne({username:req.params.username},function(err,user){
       if(err || !user){
         req.flash("error","User not found");
-        res.redirect("/posts");
+        res.redirect("/");
       }
       else{
          req.flash("success","Successfully deleted profile!");
          res.redirect("/signup");
      }
    });
+});
+app.get("/profile/:username/changepic",middleware.isLoggedIn,middleware.isProfileOwner,function(req,res){
+  User.find({username:req.params.username},function(err,user){
+    if(err) {
+      req.flash("error","User not found");
+      res.redirect("/")
+    } else {
+      res.render("profile/newPic",{user:user});
+    }
+});
+});
+app.post("/profile/:username/changepic",middleware.isLoggedIn,middleware.isProfileOwner,upload.single('image'),function(req,res){
+  cloudinary.uploader.upload(req.file.path, function(result) {
+    let displayPic = result.secure_url;
+    User.findOneAndUpdate({username:req.params.username},{displayPic : displayPic},function(err,user){
+      if(err){
+        req.flash("error","Something went wrong");
+        res.redirect("back");
+      }else{
+        req.flash("success","Updated profile picture");
+        res.redirect("/profile/"+req.params.username);
+      }
+    })
+  });
+
 });
 app.listen(3000, "127.0.0.1", function(){
    console.log("The Server Has Started!");

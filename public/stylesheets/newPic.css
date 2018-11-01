@@ -1,0 +1,11 @@
+img{
+  width:14.6em;
+  height:14.6em;
+}
+input{
+  display: block;
+  margin:1% 0;
+}
+input[type="file"]{
+  outline: none;
+}
