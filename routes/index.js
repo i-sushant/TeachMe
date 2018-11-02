@@ -6,7 +6,11 @@ router.get("/",function(req,res){
    res.render("landing",{page:'home'});
 });
 router.get("/signup", function(req, res){
+    if(!req.user)
    res.render("register", {page: 'register'}); 
+   else {
+       res.redirect("back");
+   }
 });
 
 router.post("/signup",function(req,res){
