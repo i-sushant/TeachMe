@@ -82,6 +82,11 @@ body{
 .profile-tab p{
     font-weight: 600;
     color: #0062cc;
+    cursor:context-menu;
+}
+span{
+    cursor:pointer;
+    color: #0062cc;
 }
 a:hover{
         text-decoration:none;
