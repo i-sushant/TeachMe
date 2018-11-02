@@ -2,10 +2,19 @@ body{
   background: #fefefe;
 }
 h1{
+  color:#0A79DF;
   font-family: 'Lato', sans-serif;
+}
+hr{
+  width:5em;
+  margin:0 auto;
+  border:2px solid #FAD02E;
 }
 p{
   font-family: 'Raleway', sans-serif;
+}
+.logo{
+  width:100%;
 }
 .bg-image-full {
   background: no-repeat center center scroll;
