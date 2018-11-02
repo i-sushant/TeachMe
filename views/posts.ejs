@@ -15,12 +15,12 @@
       <% } else { %>
       <% posts.reverse() %>
     <% posts.forEach(function(post){ %>
-      <div class="d-flex justify-content-center mt-1 animated fadeIn delay-4s">
+      <div class="d-flex justify-content-center mt-1 wow fadeIn delay-2">
       <div class="card mt-1 mb-1">
     <div class="card-body">
       <h5 class="card-title"> <%= post.question %></h5>
       <p class="card-text"> <%= post.description.substr(0,200) %>. . .</p>
-      <a href="/posts/<%= post._id %>" class="btn btn-primary btn-sm">Read More</a>   
+      <a href="/posts/<%= post._id %>" class="btn btn-primary btn-sm">Read More</a>
       <p class="pt-1"><%= post.answer.length %> answer</p>
     </div>
   </div>

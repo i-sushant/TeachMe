@@ -17,7 +17,11 @@ router.post("/signup",function(req,res){
         type=req.body.type,
         department=req.body.department,
         uid=req.body.uid;
-    let newUser={fullname:fullname,username:username,email:email,dob:dob,type:type,department:department,uid:uid}
+    let newUser=new User({fullname:fullname,username:username,email:email,dob:dob,type:type,department:department,uid:uid});
+    if(type==="Teacher" && req.body.secret==="111111"){
+        newUser.isTeacher=true;
+    }
+    if(type==="Student" || newUser.isTeacher==true){
     User.register(newUser,req.body.password,function(err,user){
         if(err){
             let error=err.message;
@@ -32,6 +36,10 @@ router.post("/signup",function(req,res){
             res.redirect("/posts");
         });
     });
+    } else {
+        req.flash("error","Errr! Account cannot be created. Try Again");
+        res.redirect("/signup");
+    }
 });
 router.get("/login", function(req, res){
    res.render("login", {page: 'login'}); 

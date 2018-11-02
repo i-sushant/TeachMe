@@ -10,8 +10,8 @@ let UserSchema=new mongoose.Schema({
     type:String,
     department:String,
     uid:String,
-    isAdmin:{type:Boolean,default:false},
-    displayPic:{type:String,default:"https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"}
+    isTeacher:{type:Boolean,default:false},
+    displayPic:{type:String,default:"https://res.cloudinary.com/sushantgupta33/image/upload/v1541162026/Profile_avatar_placeholder_large.png"}
 });
 UserSchema.plugin(passportLocalMongoose);
 module.exports=mongoose.model("User",UserSchema);

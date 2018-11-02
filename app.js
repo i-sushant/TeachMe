@@ -142,6 +142,6 @@ app.post("/profile/:username/changepic",middleware.isLoggedIn,middleware.isProfi
   });
 
 });
-app.listen(3000, "127.0.0.1", function(){
+app.listen(process.env.PORT, process.env.IP, function(){
    console.log("The Server Has Started!");
 });

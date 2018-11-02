@@ -1,13 +1,11 @@
 <% include partials/header.ejs %>
 <link href="/stylesheets/landing.css" rel="stylesheet">
-<header class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/1166657/pexels-photo-1166657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+    <header class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/1166657/pexels-photo-1166657.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
       <img class="img-fluid d-block mx-auto" style="width:180px;height:180px;border-radius:50%;opacity:0.9;"src="https://teachmeuk.co.uk/wp-content/uploads/2017/10/teach-me-facebook-cover.png" alt="">
     </header>
-
-    
     <section class="py-5">
-      <div class="container animated fadeInUp delay-2s">
-        <h1>About Us</h1>
+      <div class="container wow fadeIn delay-2 text-center">
+        <h1 class="mb-4">About Us</h1>
         <p class="lead">Seek out answers to all your questions or help someone with theirs.</p>
         <p>This application is to help students with their doubts and help them interact
         with their teachers , provide study materials , chat with other users (coming soon) , engage in group discussions and much more!
@@ -18,11 +16,51 @@
         <% } %>
       </div>
     </section>
-
-    <section class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/197293/pexels-photo-197293.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
-      <div style="height: 200px;"></div>
+    <section class="team container">
+      <h1 class="text-center">Our Team</h1>
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <div class="card text-center wow fadeIn delay-1" style="width: 17rem">
+          <img class="card-img-top" src="https://imgur.com/VSSXdqb.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Sushant Gupta</h5>
+            <p class="card-text">Back-End Developer</p>
+            <a href="/profile/sushant" class="btn btn-primary">Show Profile</a>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-3 ">
+          <div class="card text-center wow fadeIn delay-2" style="width: 17rem;">
+            <img class="card-img-top" src="https://imgur.com/wRiDdmA.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Satyabrata Pal</h5>
+              <p class="card-text">Front-End Developer</p>
+              <a href="/profile/satya" class="btn btn-primary">Show Profile</a>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-3 ">
+          <div class="card text-center  wow fadeIn delay-3"  style="width: 17rem;">
+          <img class="card-img-top" src="https://imgur.com/64ZhPtF.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Nibedita Priyadarshini</h5>
+            <p class="card-text">Front-End Designer</p>
+            <a href="/profile/nibedita" class="btn btn-primary">Show Profile</a>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-3 ">
+          <div class="card text-center  wow fadeIn delay-4" style="width: 17rem;">
+          <img class="card-img-top" src="https://imgur.com/edxMobs.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Abhishek Das</h5>
+            <p class="card-text">Front-End Designer</p>
+            <a href="/profile/abhishek" class="btn btn-primary">Show Profile</a>
+          </div>
+        </div>
+        </div>
+      </div>
     </section>
-
     <section class="py-5">
       <div class="container">
             <form action="mailto:imsushant25@gmail.com" method="POST" enctype="text/plain">
@@ -37,10 +75,9 @@
                 </div>
                 <div class="form-group row">
                     <input  name="" value="Contact us" type="submit" class="btn btn-success btn-sm col-md-4">
-                </div>  
+                </div>
         </form>
        </div>
     </section>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
 <% include partials/footer.ejs %>
