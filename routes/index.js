@@ -25,7 +25,7 @@ router.post("/signup",function(req,res){
     if(type==="Teacher" && req.body.secret==="111111"){
         newUser.isTeacher=true;
     }
-    if(type==="Student" || newUser.isTeacher==true){
+    if((type==="Student" || newUser.isTeacher==true) && !req.user){
     User.register(newUser,req.body.password,function(err,user){
         if(err){
             let error=err.message;
