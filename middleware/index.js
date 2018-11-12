@@ -12,7 +12,7 @@ middlewareObj.isProfileOwner=function(req,res,next){
     if(req.isAuthenticated()){
         User.find({username:req.params.username},function(err,user){
             if(err || !user) {
-              res.flash("error","User not found");
+              req.flash("error","User not found");
               res.redirect("back");
             }
             else{
@@ -20,7 +20,7 @@ middlewareObj.isProfileOwner=function(req,res,next){
                     next();
                 }
                 else{
-                  res.flash("error","You don't have permission to do that");
+                  req.flash("error","You don't have permission to do that");
                   res.redirect("back");
                 }
             }
@@ -41,7 +41,7 @@ middlewareObj.checkPostOwner=function(req,res,next){
                  next();
                 }
                 else{
-                  res.flash("error","You don't have permission to do that");
+                  req.flash("error","You don't have permission to do that");
                   res.redirect("back");
                 }
                     
