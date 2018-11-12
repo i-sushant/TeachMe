@@ -8,8 +8,8 @@
           <div class="col-md-4">
             <div class="profile-img">
               <img src="<%= user[0].displayPic %>" alt="" />
+              <% if(currentUser.username===user[0].username){ %>
               <div class="file btn btn-lg btn-primary">
-                <% if(currentUser.username===user[0].username){ %>
                 <a href="/profile/<%= user[0].username %>/changepic">Change Photo</a>
                 <% } %>
               </div>
